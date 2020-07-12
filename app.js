@@ -13,7 +13,7 @@ const app = express()
 app.use(logger('dev'))
 app.use(express.json())
 app.use(cors({
-  //origin: 'https://covidcases.io',
+  origin: process.env.CLIENT,
   optionsSuccessStatus: 200           // legacy browsers
 }))
 app.use(express.urlencoded({ extended: false }))
