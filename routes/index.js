@@ -10,7 +10,6 @@ router.get('/', function (req, res, next) {
 
 router.get('/geolocate', (req, res, next) => {
   const { lat, lng } = req.query
-  console.log(`Query: ${lat}, ${lng}`)
   axios.get(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&addressdetails=1`)
     .then(response => res.json(response.data))
     .catch(err => next(err)) 
