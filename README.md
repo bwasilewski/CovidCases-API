@@ -1,8 +1,8 @@
 # covidcases-server
 
 * [ ] TODO: Connect with frontend
-* [ ] TODO: Set up production on DigitalOcean
 * [ ] TODO: Can we automate the deployment steps below?
+* [x] TODO: Set up production on DigitalOcean
 
 
 This application was deployed using [these instructions](https://coderrocketfuel.com/article/create-and-deploy-an-express-rest-api-to-a-digitalocean-server)
