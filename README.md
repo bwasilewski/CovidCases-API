@@ -1,7 +1,7 @@
 # covidcases-server
 
-* [ ] TODO: Connect with frontend
-* [ ] TODO: Can we automate the deployment steps below?
+* [ ] TODO: Automate deployment update (below instructions)
+* [x] TODO: Connect with frontend
 * [x] TODO: Set up production on DigitalOcean
 
 
