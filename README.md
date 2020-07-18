@@ -1,8 +1,9 @@
 # covidcases-server
 
-* [ ] TODO: Automate deployment update (below instructions)
-* [x] TODO: Connect with frontend
-* [x] TODO: Set up production on DigitalOcean
+* [ ] Replace current data source with covid19api.com
+* [ ] Automate deployment update (below instructions)
+* [x] Connect with frontend
+* [x] Set up production on DigitalOcean
 
 
 This application was deployed using [these instructions](https://coderrocketfuel.com/article/create-and-deploy-an-express-rest-api-to-a-digitalocean-server)
