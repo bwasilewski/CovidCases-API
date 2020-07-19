@@ -24,4 +24,16 @@ router.get('/locatebyzip', (req, res, next) => {
 })
 
 
+router.get('/states', (req, res, next) => {
+  axios.get(`https://covidtracking.com/api/states`)
+		.then(response => res.json(response.data))
+		.catch(err => next(err))
+})
+
+router.get('/info', (req, res, next) => {
+  axios.get(`https://covidtracking.com/api/states/info`)
+		.then(response => res.json(response.data))
+		.catch(err => next(err))
+})
+
 module.exports = router
