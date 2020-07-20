@@ -1,6 +1,6 @@
 # covidcases-server
 
-* [ ] Replace current data source with covid19api.com
+* [ ] Replace current data source with JHU
 * [ ] Automate deployment update (below instructions)
 * [x] Connect with frontend
 * [x] Set up production on DigitalOcean
