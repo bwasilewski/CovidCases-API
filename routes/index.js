@@ -21,7 +21,6 @@ router.get('/locatebyzip', (req, res, next) => {
   const { zip } = req.query
   axios.get(`https://nominatim.openstreetmap.org/search?q=${zip}&format=json`)
 		.then(response => {
-			console.log(response.data)
 			let results = []
 			if ( response.data.length > 0 ) results = response.data[0]
 			res.json(results)
@@ -44,9 +43,11 @@ router.get('/info', (req, res, next) => {
 
 
 router.get('/jhu', (req, res, next) => {
-	getCSV('Wisconsin')
+	const { q } = req.query
+	console.log(q)
+	getCSV(q)
     .then(response => res.json(response))
-		.catch(err => next(err))
+.catch(err => next(err))
 })
 
 module.exports = router
