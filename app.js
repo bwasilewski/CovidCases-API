@@ -7,6 +7,7 @@ require('dotenv').config()
 
 
 const indexRouter = require('./routes/index')
+const jhuRouter = require('./routes/jhu')
 
 const app = express()
 
@@ -20,6 +21,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 
 app.use('/', indexRouter)
+app.use('/jhu', jhuRouter)
 //app.use('/users', usersRouter)
 app.listen(process.env.PORT, () => console.log(`Listening on http://localhost:${process.env.PORT}`))
 

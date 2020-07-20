@@ -41,13 +41,14 @@ router.get('/info', (req, res, next) => {
 		.catch(err => next(err))
 })
 
-
+/*
 router.get('/jhu', (req, res, next) => {
 	const { q } = req.query
-	console.log(q)
-	getCSV(q)
+	const filePath = path.join(__dirname, '../data/csse_covid_19_data/csse_covid_19_daily_reports_us/07-18-2020.csv')
+	getCSV(filePath)
     .then(response => res.json(response))
 .catch(err => next(err))
 })
+*/
 
 module.exports = router
