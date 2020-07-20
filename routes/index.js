@@ -1,6 +1,7 @@
 const express = require('express')
 const axios = require('axios')
 const router = express.Router()
+const { getCSV } = require('../events')
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -33,6 +34,13 @@ router.get('/states', (req, res, next) => {
 router.get('/info', (req, res, next) => {
   axios.get(`https://covidtracking.com/api/states/info`)
 		.then(response => res.json(response.data))
+		.catch(err => next(err))
+})
+
+
+router.get('/jhu', (req, res, next) => {
+	getCSV('Wisconsin')
+    .then(response => res.json(response))
 		.catch(err => next(err))
 })
 
