@@ -12,10 +12,7 @@ router.get('/', function (req, res, next) {
 router.get('/geolocate', (req, res, next) => {
   const { lat, lng } = req.query
   axios.get(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&addressdetails=1`)
-		.then(response => {
-			console.log(response.data)
-			res.json(response.data)
-		})    
+		.then(response => res.json(response.data))    
 		.catch(err => next(err)) 
 })
 
@@ -24,6 +21,7 @@ router.get('/locatebyzip', (req, res, next) => {
   const { zip } = req.query
   axios.get(`https://nominatim.openstreetmap.org/search?q=${zip}&format=json`)
 		.then(response => {
+			console.log(response.data)
 			let results = []
 			if ( response.data.length > 0 ) results = response.data[0]
 			res.json(results)
