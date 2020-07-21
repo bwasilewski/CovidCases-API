@@ -1,4 +1,4 @@
-const { GlobalByDate, CountryByDate } = require('./jhu')
+const { GlobalByDate, CountryByDate } = require('./confirmed')
 
 
 test('CountryByDate: Results', () => {

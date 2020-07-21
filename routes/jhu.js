@@ -1,7 +1,7 @@
 const express = require('express')
 const axios = require('axios')
 const router = express.Router()
-const { CountryByDate, GlobalByDate } = require('../events/jhu')
+const { CountryByDate, GlobalByDate } = require('../events/jhu/global/confirmed')
 
 
 router.get('/globalbydate', (req, res, next) => {
