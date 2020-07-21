@@ -1,5 +1,6 @@
 # covidcases-server
 
+* [ ] Add helmet and other security stuff
 * [ ] Automate a daily pull on JHU submodule
 * [ ] Automate deployment update (below instructions)
 * [x] Add unit testing
