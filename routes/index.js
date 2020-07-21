@@ -4,10 +4,11 @@ const router = express.Router()
 const { getCSV } = require('../events')
 
 /* GET home page. */
+/*
 router.get('/', function (req, res, next) {
   res.json({ hello: 'World' })
 })
-
+*/
 
 router.get('/geolocate', (req, res, next) => {
   const { lat, lng } = req.query
@@ -28,27 +29,5 @@ router.get('/locatebyzip', (req, res, next) => {
 		.catch(err => next(err))
 })
 
-
-router.get('/states', (req, res, next) => {
-  axios.get(`https://covidtracking.com/api/states`)
-		.then(response => res.json(response.data))
-		.catch(err => next(err))
-})
-
-router.get('/info', (req, res, next) => {
-  axios.get(`https://covidtracking.com/api/states/info`)
-		.then(response => res.json(response.data))
-		.catch(err => next(err))
-})
-
-/*
-router.get('/jhu', (req, res, next) => {
-	const { q } = req.query
-	const filePath = path.join(__dirname, '../data/csse_covid_19_data/csse_covid_19_daily_reports_us/07-18-2020.csv')
-	getCSV(filePath)
-    .then(response => res.json(response))
-.catch(err => next(err))
-})
-*/
 
 module.exports = router
