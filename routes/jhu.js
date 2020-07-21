@@ -5,7 +5,8 @@ const { CountryByDate, GlobalByDate } = require('../events/jhu')
 
 
 router.get('/globalbydate', (req, res, next) => {
-  GlobalByDate()
+  const { date } = req.query
+  GlobalByDate(date)
 		.then(response => res.json(response))
 		.catch(err => next(err))
 })
