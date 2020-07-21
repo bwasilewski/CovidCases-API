@@ -25,11 +25,11 @@ module.exports = {
 				.catch(err => reject(err))
 		})
 	},
-	getCountry: (country, date) => {
+	getCountry: (country, date = null) => {
 		return new Promise((resolve, reject) => {
 			getCSV(filePath)
 				.then(results => {
-					if ( date ) resolve(filterResults(country, date, results))
+					if ( date !== null ) resolve(filterResults(country, date, results))
 					else resolve(filterByCountry(country, results))
 				})	
 				.catch(err => reject(err))
