@@ -1,19 +1,12 @@
-const { getCSV } = require('../../index')
+const { getCSV } = require('../../')
 const path = require('path')
+const { filterByCountry, filterByDate } = require('../../')
 const filePath = path.join(__dirname, '../../../data/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv')  
 
 
-const FilterByDate = (date, dataset) => {
-	return dataset.filter( item => item[date] !== undefined )
-}
-
-const FilterByCountry = (country, dataset) => {
-  return dataset.filter( item => item['Country/Region'] === country )
-}
-
-const FilterResults = (country, date, dataset) => {
-  let results = FilterByCountry(country, dataset)
-	results = FilterByDate(date, results)
+const filterResults = (country, date, dataset) => {
+  let results = filterByCountry(country, dataset)
+	results = filterByDate(date, results)
 
 	if (results.length > 0) {
 		return [{
@@ -35,7 +28,7 @@ module.exports = {
   CountryByDate: (country, date) => {
 		return new Promise((resolve, reject) => {
 			getCSV(filePath)
-				.then(results => resolve(FilterResults(country, date, results)))
+				.then(results => resolve(filterResults(country, date, results)))
 				.then(results => resolve(results))
 				.catch(err => reject(err))
 		})
