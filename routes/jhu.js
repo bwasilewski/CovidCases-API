@@ -8,10 +8,6 @@ router.get('/globalbydate', (req, res, next) => {
   GlobalByDate()
 		.then(response => res.json(response))
 		.catch(err => next(err))
-  // const { lat, lng } = req.query
-  // axios.get(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&addressdetails=1`)
-	//	.then(response => res.json(response.data))    
-	// 	.catch(err => next(err)) 
 })
 
 

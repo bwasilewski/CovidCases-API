@@ -6,17 +6,15 @@ const filterByState = (slug, results) => {
 	return results.filter(result => result.Province_State === slug)  
 }
 
-const getCSV = (filePath) => {
-	return new Promise((resolve, reject) => {
-		let results = []
-	  fs.createReadStream(filePath)
-			.pipe(csv())
-			.on('data', data => results.push(data))
-			.on('error', err => reject(err))
-			.on('end', () => resolve(results))
-	})
-}
-
 module.exports = {
-  getCSV: getCSV
+  getCSV: (filePath) => {
+		return new Promise((resolve, reject) => {
+			let results = []
+			fs.createReadStream(filePath)
+				.pipe(csv())
+				.on('data', data => results.push(data))
+				.on('error', err => reject(err))
+				.on('end', () => resolve(results))
+		})
+	}
 }
