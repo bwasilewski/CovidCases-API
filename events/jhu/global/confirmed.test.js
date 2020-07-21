@@ -17,12 +17,10 @@ test('CountryByDate: No Results', () => {
 		})
 })
 
-/*
 test('GlobalByDate', () => {
-  GlobalByDate('7/18/20')
+  return GlobalByDate('7/18/20')
 		.then(response => {
-			expect(response).toBeGreaterThan()
+			expect(response.length).toBeGreaterThan(0)
 		})
 })
-*/
 
