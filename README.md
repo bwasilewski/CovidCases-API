@@ -1,5 +1,7 @@
 # covidcases-server
 
+* [ ] Add unit testing
+* [ ] Automate a daily pull on JHU submodule
 * [ ] Replace current data source with JHU
 * [ ] Automate deployment update (below instructions)
 * [x] Connect with frontend
