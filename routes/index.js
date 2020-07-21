@@ -1,14 +1,15 @@
 const express = require('express')
 const axios = require('axios')
 const router = express.Router()
+const jhuRouter = require('./jhu')
 const { getCSV } = require('../events')
 
 /* GET home page. */
-/*
 router.get('/', function (req, res, next) {
-  res.json({ hello: 'World' })
+  res.json({ 
+		author: 'Benjamin Wasilewski' 
+	})
 })
-*/
 
 router.get('/geolocate', (req, res, next) => {
   const { lat, lng } = req.query
@@ -29,5 +30,7 @@ router.get('/locatebyzip', (req, res, next) => {
 		.catch(err => next(err))
 })
 
+
+router.use('/jhu', jhuRouter)
 
 module.exports = router
