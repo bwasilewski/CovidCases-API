@@ -1,9 +1,9 @@
 # covidcases-server
 
-* [ ] Add unit testing
 * [ ] Automate a daily pull on JHU submodule
-* [ ] Replace current data source with JHU
 * [ ] Automate deployment update (below instructions)
+* [x] Add unit testing
+* [x] Replace current data source with JHU
 * [x] Connect with frontend
 * [x] Set up production on DigitalOcean
 
