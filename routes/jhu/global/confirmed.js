@@ -18,15 +18,9 @@ router.get('/country/:country', (req, res, next) => {
 	const { country } = req.params
   const { date } = req.query
 
-	getCountry(country)
+	getCountry(country, date)
 		.then(response => res.json(response))
 		.catch(err => next(err))
-
-  /*
-  CountryByDate(country, date)
-	  .then(response => res.json(response))	
-		.catch(err => next(err))
-	*/
 })
 
 
