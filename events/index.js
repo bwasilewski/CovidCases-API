@@ -17,16 +17,19 @@ module.exports = {
 		return dataset.filter( item => item['Country/Region'] === country )
 	},
 	filterByDate: (date, dataset) => {
-		return dataset.map(item => {
-			return {
-				'Province/State': item['Province/State'],
-				'Country/Region': item['Country/Region'], 
-				'Lat': item['Lat'],
-				'Long': item['Long'],
-				'State/Province': item['State/Province'],
-				'total': parseInt(item[date])
-			}
-		})
+		let filtered = []
+		dataset.forEach(item => {
+			if ( item[date] ) {
+				filtered.push({
+					'Province/State': item['Province/State'],
+					'Country/Region': item['Country/Region'], 
+					'Lat': item['Lat'],
+					'Long': item['Long'],
+					'State/Province': item['State/Province'],
+					'total': item[date]
+				})
+		}})
+		return filtered
 	},
 	filterByState: (state, dataset) => {
 		return dataset.filter( item => item['State'] == state )

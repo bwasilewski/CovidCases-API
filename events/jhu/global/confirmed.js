@@ -12,6 +12,8 @@ const filterResults = (country, date, dataset) => {
 		return {
 			"Country/Region": item["Country/Region"],
 			"Province/State": item["Province/State"],
+			"Lat": item["Lat"],
+			"Long": item["Long"],
 			"date": date,
 			"total": item['total']
 		}
