@@ -1,4 +1,4 @@
-const { GlobalByDate, getCountry } = require('./confirmed')
+const { getGlobal, getCountry } = require('./confirmed')
 
 
 describe('getCountry', () => {
@@ -28,9 +28,11 @@ describe('getCountry', () => {
 })
 
 
-test('GlobalByDate', () => {
-  return GlobalByDate('7/18/20')
-		.then(response => {
-			expect(response.length).toBeGreaterThan(0)
-		})
+describe('getGlobal', () => {
+	test('should return an array with a single object', () => {
+		return getGlobal('7/18/20')
+			.then(response => {
+				expect(response.length).toBeGreaterThan(0)
+			})
+	})
 })
