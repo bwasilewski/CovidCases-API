@@ -5,11 +5,13 @@ const logger = require('morgan')
 const cors = require('cors')
 const indexRouter = require('./routes/index')
 const dotenv = require('dotenv')
+const helmet = require('helmet')
 
 dotenv.config()
 
 const app = express()
 
+app.use(helmet())
 app.use(logger('dev'))
 app.use(express.json())
 app.use(cors({
