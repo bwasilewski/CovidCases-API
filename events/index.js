@@ -37,6 +37,9 @@ module.exports = {
 		return filtered
 	},
 	filterByState: (state, dataset) => {
-		return dataset.filter( item => item['State'] == state )
+		return dataset.filter( item => item['Province_State'] == state )
+	},
+	filterByCounty: (county, state, dataset) => {
+		return dataset.filter( item => item['Province_State'] == state && item['Admin2'] == county )
 	}
 }
