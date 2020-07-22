@@ -31,7 +31,11 @@ module.exports = {
 	getCounty: (county, state, date) => {
 		return new Promise((resolve, reject) => {
 			getCSV(usFilePath)
-				.then(results => resolve(filterByCounty(county, state, results)))
+				.then(results => {
+					let filtered = results.filter(item => item['Province_State'] == state && item['Admin2'] == county)
+					if ( date ) filtered = filterByDate(date, filtered)
+					resolve(filtered)
+				})
 				.catch(err => reject(err))
 		})
 	}
