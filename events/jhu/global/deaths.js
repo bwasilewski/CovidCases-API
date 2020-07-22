@@ -1,6 +1,7 @@
 const { getCSV } = require('../../')
 const path = require('path')
-const { filterByCountry, filterByDate } = require('../../')
+const { filterByCountry, } = require('../../')
+const { filterByDate } = require('./index')
 const filePath = path.join(__dirname, '../../../data/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv')  
 
 
