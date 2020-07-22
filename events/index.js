@@ -1,16 +1,21 @@
 const fs = require('fs')
 const path = require('path')
-const csv = require('csv-parser')
+const csv = require('papaparse')
+const parseOptions = {
+	header: true,
+	dynamicTyping: true
+}
 
 module.exports = {
   getCSV: (filePath) => {
 		return new Promise((resolve, reject) => {
 			let results = []
-			fs.createReadStream(filePath)
-				.pipe(csv())
-				.on('data', data => results.push(data))
+			const filestream = fs.createReadStream(filePath)
+			const parsestream = csv.parse(csv.NODE_STREAM_INPUT, parseOptions)
+			filestream.pipe(parsestream)
+				.on('data', chunk => results.push(chunk))
 				.on('error', err => reject(err))
-				.on('end', () => resolve(results))
+				.on('finish', () => resolve(results))
 		})
 	},
 	filterByCountry: (country, dataset) => {
