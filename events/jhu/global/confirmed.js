@@ -8,20 +8,24 @@ const filterResults = (country, date, dataset) => {
   let results = filterByCountry(country, dataset)
 	results = filterByDate(date, results)
 
-	if (results.length > 0) {
-		return [{
-			"Country/Region": results[0]["Country/Region"],
+	return results.map(item => {
+		return {
+			"Country/Region": item["Country/Region"],
+			"Province/State": item["Province/State"],
 			"date": date,
-			"total": parseInt(results[0][date])
-		}]
-	} else return []
+			"total": item['total']
+		}
+	})
 }
 
 module.exports = {
-  GlobalByDate: date => {
+  getGlobal: (date = null) => {
 		return new Promise((resolve, reject) => {
 			getCSV(filePath)
-				.then(results => resolve(results))
+				.then(results => {
+					if ( date ) resolve(filterByDate(date, results))
+					else resolve(results)
+				})
 				.catch(err => reject(err))
 		})
 	},
@@ -29,7 +33,7 @@ module.exports = {
 		return new Promise((resolve, reject) => {
 			getCSV(filePath)
 				.then(results => {
-					if ( date !== null ) resolve(filterResults(country, date, results))
+ 					if ( date !== null ) resolve(filterResults(country, date, results))
 					else resolve(filterByCountry(country, results))
 				})	
 				.catch(err => reject(err))
