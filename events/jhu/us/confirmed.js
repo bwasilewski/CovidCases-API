@@ -5,7 +5,7 @@ const filePath = path.join(__dirname, '../../../data/csse_covid_19_data/csse_cov
 
 
 module.exports = {
-	getUsByDate: date => {
+	getUS: date => {
 		return new Promise((resolve, reject) => {
 			getCSV(filePath)
 				.then(results => resolve(results))
