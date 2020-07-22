@@ -17,6 +17,18 @@ module.exports = {
 		return dataset.filter( item => item['Country/Region'] === country )
 	},
 	filterByDate: (date, dataset) => {
-		return dataset.filter( item => item[date] !== undefined )
+		return dataset.map(item => {
+			return {
+				'Province/State': item['Province/State'],
+				'Country/Region': item['Country/Region'], 
+				'Lat': item['Lat'],
+				'Long': item['Long'],
+				'State/Province': item['State/Province'],
+				'total': parseInt(item[date])
+			}
+		})
+	},
+	filterByState: (state, dataset) => {
+		return dataset.filter( item => item['State'] == state )
 	}
 }
