@@ -14,6 +14,7 @@ describe('= Confirmed =', () => {
 				})
 		})
 
+		// TODO this test needs more expectations
 		it('should get the total for a single day', () => {
 			return getCountry(countryA, successDate)
 				.then(response => {
