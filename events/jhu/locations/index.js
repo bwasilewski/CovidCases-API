@@ -5,6 +5,7 @@ const filePath = path.join(__dirname, '../../../data/csse_covid_19_data/UID_ISO_
 
 module.exports = {
 	getLocation: l => {
+		console.log(l)
 		return new Promise((resolve, reject) => {
 			getCSV(filePath)
 				.then(response => {
@@ -15,9 +16,10 @@ module.exports = {
 							i.Province_State === l.province && 
 							i.Country_Region === l.country)
 					} else if ( l.province ) {
+						console.log('province')
 						out = response.filter(i => 
 							i.Province_State === l.province && 
-							i.Country === l.country &&
+							i.Country_Region === l.country &&
 							i.Admin2 === null)
 					} else if ( l.country ) {
 						out = response.filter(i => 
@@ -25,7 +27,7 @@ module.exports = {
 							i.Admin2 === null && 
 							i.Province_State === null)
 					}
-					resolve(out)
+					resolve(out[0])
 				})
 				.catch(err => reject(err))
 		})
