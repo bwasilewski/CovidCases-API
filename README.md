@@ -1,8 +1,10 @@
 # covidcases-server
 
-* [ ] Add helmet and other security stuff
+* [ ] Endpoint for getting a location's lat/long
+* [ ] Replace current source of data with the daily reports
 * [ ] Automate a daily pull on JHU submodule
 * [ ] Automate deployment update (below instructions)
+* [x] Add helmet and other security stuff
 * [x] Add unit testing
 * [x] Replace current data source with JHU
 * [x] Connect with frontend
