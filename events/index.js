@@ -20,13 +20,5 @@ module.exports = {
 	},
 	filterByCountry: (country, dataset) => {
 		return dataset.filter( item => item['Country/Region'] === country )
-	},
-	filterByState: (state, dataset) => {
-		console.log(state)
-		console.log(dataset)
-		return dataset.filter( item => item['Province_State'] == state )
-	},
-	filterByCounty: (county, state, dataset) => {
-		return dataset.filter( item => item['Province_State'] == state && item['Admin2'] == county )
 	}
 }
